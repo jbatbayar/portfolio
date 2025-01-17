@@ -9,12 +9,6 @@ body {
     padding-right: 5ch;
   }
 
-/* img {
-    width: 60%;
-    height: 100vh;
-    object-fit: cover;
-  } */
-
 nav {
     display: flex;
     margin-bottom: 1em;
@@ -92,4 +86,19 @@ h1 {
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
+}
+
+section {
+  margin: 25px 0;
+  padding: 20px;
+  background-color:#e8e3ed;
+}
+
+time {
+  font-size: 0.9em;
+  color: #403f3f;
+}
+
+ul li {
+  margin-bottom: 5px;
 }
