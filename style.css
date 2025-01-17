@@ -20,7 +20,7 @@ nav {
     margin-bottom: 1em;
     border-bottom: 1px solid oklch(80% 3% 200);
   }
-  
+
 nav a {
     flex: 1;
     text-decoration: none;
