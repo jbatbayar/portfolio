@@ -3,4 +3,23 @@ body {
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui;
+    max-width: 75ch;
+    margin-inline: auto;
+    padding-left: 5ch;
+    padding-right: 5ch;
   }
+
+img {
+    width: 60%;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+nav {
+    display: flex;
+  }
+  
+nav a {
+    flex: 1;
+  }
+  
