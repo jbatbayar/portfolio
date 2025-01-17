@@ -47,3 +47,29 @@ nav a {
     border-bottom: 0.4em solid var(--color-accent);
     background-color: oklch(90% 10% 300);
   }
+
+  form input, form textarea, form button {
+    font: inherit;
+  }
+
+  /* form label, form input, form textarea, form button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-block: 1em;
+} */
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+form label {
+  display: contents;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
+form button {
+  grid-column: 1 / -1;
+}
