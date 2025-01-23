@@ -24,28 +24,28 @@ nav a {
     padding: 0.5em;
   }
 
-  nav a.current {
-    border-bottom: 0.4em solid oklch(80% 3% 200);
-    padding-bottom: 0.1em;
-    font-weight: bold;
-  }
+nav a.current {
+  border-bottom: 0.4em solid var(--border-color);
+  padding-bottom: 0.1em;
+  font-weight: bold;
+}
 
-  :root {
-    --color-accent: oklch(55% 30% 300);
-  }
+:root {
+  --color-accent: oklch(55% 30% 300);
+}
 
-  html {
-    accent-color: var(--color-accent);
-  }
+html {
+  color-scheme: light dark;
+}
 
-  nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent);
-    background-color: oklch(90% 10% 300);
-  }
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
 
-  form input, form textarea, form button {
-    font: inherit;
-  }
+form input, form textarea, form button {
+  font: inherit;
+}
 
 form {
   display: grid;
@@ -102,4 +102,12 @@ time {
 
 ul li {
   margin-bottom: 5px;
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.8rem;
+  font-family: inherit;
 }
