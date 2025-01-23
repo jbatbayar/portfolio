@@ -9,10 +9,10 @@ function $$(selector, context = document) {
 // );
 // currentLink?.classList.add('current');
 let pages = [
-  { url: 'portfolio/', title: 'Home' },
-  { url: 'portfolio/projects/', title: 'Projects' },
-  { url: "portfolio/resume/cv.html", title: "Resume" },
-  { url: "portfolio/contact/", title: "Contact" },
+  { url: '/portfolio/', title: 'Home' },
+  { url: '/portfolio/projects/', title: 'Projects' },
+  { url: '/portfolio/resume/cv.html', title: 'Resume' },
+  { url: '/portfolio/contact/', title: 'Contact' },
   { url: "https://github.com/jbatbayar", title: "Github Profile"},
 ];
 
