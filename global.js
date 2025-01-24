@@ -69,3 +69,20 @@ if (localStorage.colorScheme) {
 } else {
   document.documentElement.style.setProperty('color-scheme', 'light dark');
 }
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   const form = document.getElementById('contact-form');
+//   let url = form.action + "?";
+
+//   form?.addEventListener('submit', function(event) {
+//     event.preventDefault();
+
+//     const data = new FormData(form);
+//     let url = 'mailto:your-email@example.com?';
+//     for (let [name, value] of data) {
+//       url += `${encodeURIComponent(name)}=${encodeURIComponent(value)}&`;
+//       console.log(name, value);
+//     }
+//     location.href = url;
+//   });
+// });
