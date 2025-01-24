@@ -70,19 +70,23 @@ if (localStorage.colorScheme) {
   document.documentElement.style.setProperty('color-scheme', 'light dark');
 }
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   const form = document.getElementById('contact-form');
-//   let url = form.action + "?";
+const form = document.querySelector("form");
 
-//   form?.addEventListener('submit', function(event) {
-//     event.preventDefault();
+form?.addEventListener("submit", function (event) {
 
-//     const data = new FormData(form);
-//     let url = 'mailto:your-email@example.com?';
-//     for (let [name, value] of data) {
-//       url += `${encodeURIComponent(name)}=${encodeURIComponent(value)}&`;
-//       console.log(name, value);
-//     }
-//     location.href = url;
-//   });
-// });
+  event.preventDefault();
+
+  const data = new FormData(form);
+  let url = form.action + "?";
+
+  for (let [name, value] of data) {
+    // url += `${name}=${value}&`;
+    url += `${encodeURIComponent(name)}=${encodeURIComponent(value)}&`;
+    // console.log(name, value);
+    // params.push(`${encodeURIComponent(name)}=${encodeURIComponent(value)}`);
+  }
+
+  // url += params.join("&");
+
+  location.href = url;
+});
