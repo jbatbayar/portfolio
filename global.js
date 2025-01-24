@@ -83,10 +83,7 @@ form?.addEventListener("submit", function (event) {
     // url += `${name}=${value}&`;
     url += `${encodeURIComponent(name)}=${encodeURIComponent(value)}&`;
     // console.log(name, value);
-    // params.push(`${encodeURIComponent(name)}=${encodeURIComponent(value)}`);
   }
-
-  // url += params.join("&");
-
+  // console.log(url);
   location.href = url;
 });
