@@ -91,8 +91,9 @@ form?.addEventListener("submit", function (event) {
 export async function fetchJSON(url) {
   try {
     // Fetch the JSON file from the given URL
+      console.log('fetching:', url)
       const response = await fetch(url);
-      // console.log(response);
+      console.log(response);
 
       if (!response.ok) {
         throw new Error(`Failed to fetch projects: ${response.statusText}`);
@@ -106,12 +107,12 @@ export async function fetchJSON(url) {
       console.error('Error fetching or parsing JSON data:', error);
   }
 }
-// const projects = await fetchJSON('../lib/projects.json');
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   // Your code will go here
-  // console.log('project', projects)
-  // console.log('Container Element:', containerElement);
+  console.log('Project:', projects)
+  console.log('Container Element:', containerElement);
+  console.log('Headinglvl:', headingLevel)
   containerElement.innerHTML = '';
 
   for (const project of projects) {

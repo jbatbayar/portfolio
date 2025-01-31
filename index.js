@@ -2,7 +2,6 @@ import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
 const projects = await fetchJSON('./lib/projects.json');
 const latestProjects = projects.slice(0, 3);
-// console.log(latestProjects)
 
 const projectsContainer = document.querySelector('.projects');
 renderProjects(latestProjects, projectsContainer, 'h2');
@@ -21,5 +20,5 @@ if (profileStats) {
             <dt>Following:</dt><dd>${githubData.following}</dd>
           </dl>
       `;
-// console.log(profileStats)
+console.log(profileStats)
 }
