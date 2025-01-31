@@ -3,7 +3,7 @@ const projects = await fetchJSON('../lib/projects.json');
 // console.log(projects)
 const projectsContainer = document.querySelector('.projects');
 if (projectsContainer) {
-    renderProjects(projects, projectsContainer, 'h3');
+    renderProjects(projects, projectsContainer, 'h2');
 } else {
     console.error('Projects container not found');
 }
