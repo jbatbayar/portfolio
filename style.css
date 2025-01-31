@@ -3,7 +3,7 @@ body {
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui;
-    max-width: 75ch;
+    max-width: 95ch;
     margin-inline: auto;
     padding-left: 5ch;
     padding-right: 5ch;
@@ -72,12 +72,17 @@ form button {
 .projects article {
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 3;
+  grid-row: span 4;
   gap: 1em;
 }
 
 .projects article h2 {
   margin: 0;
+}
+
+.projects article h3 {
+  margin: 0;
+  font-weight: initial ;
 }
 
 h1 {
