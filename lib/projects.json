@@ -2,7 +2,7 @@
 	{
 		"title": "Where do I go for the best 🌞-🌧️ balance?",
         "year": "2025",
-		"image": "/images/project1.png",
+		"image": "../images/project1.png",
 		"description": "Visualization highlights the cities that have the smallest difference between the normalized average sun and rain - the most balanced city each season. All normalized sunshine values are shown as yellow sun while normalized rain values are represented as cloud and rain in blue."
 	},
 	{
