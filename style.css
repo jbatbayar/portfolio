@@ -170,6 +170,7 @@ ul li {
 .legend {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  list-style-type: none;
   gap: 0.6rem;
   padding: 1rem;
   border: 1px solid #ccc;
@@ -196,4 +197,23 @@ ul li {
   margin: 1rem;
   padding: 0.8rem;
   font-size: 1rem;
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.selected {
+  --color: oklch(2.9% 0.0049 118) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
 }

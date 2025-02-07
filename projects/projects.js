@@ -49,24 +49,26 @@ import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 // let sliceGenerator = d3.pie();
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
+
 // LAB 5 STEP 3
 // let projects = fetchJSON('../lib/projects.json');; // fetch your project data
-// let rolledData = d3.rollups(
-//   projects,
-//   (v) => v.length,
-//   (d) => d.year,
-// );
+let rolledData = d3.rollups(
+  projects,
+  (v) => v.length,
+  (d) => d.year,
+);
 
-// let data = rolledData.map(([year, count]) => {
-//     return { value: count, label: year };
-//   });
+let data = rolledData.map(([year, count]) => {
+    return { value: count, label: year };
+  });
 
 //   END LAB 5 STEP 3
 
-// let sliceGenerator = d3.pie().value((d) => d.value);
+let sliceGenerator = d3.pie().value((d) => d.value);
 
-// let arcData = sliceGenerator(data);
-// let arcs = arcData.map((d) => arcGenerator(d));
+let arcData = sliceGenerator(data);
+let arcs = arcData.map((d) => arcGenerator(d));
 
 // arcs.forEach((arc, idx) => {
 //     d3.select('svg')
@@ -146,8 +148,73 @@ searchInput.addEventListener('change', (event) => {
         return values.includes(query.toLowerCase())
     ;})
 //   let filteredProjects = setQuery(event.target.value);
-  console.log("filtered:", filteredProjects)
+  // console.log("filtered:", filteredProjects)
   // re-render legends and pie chart when event triggers
   renderProjects(filteredProjects, projectsContainer, 'h2');
   renderPieChart(filteredProjects);
 });
+
+let selectedIndex = -1;
+let svg = d3.select('svg');
+let legend = d3.select('.legend');
+  svg.selectAll('path').remove();
+  arcs.forEach((arc, i) => {
+    svg
+      .append('path')
+      .attr('d', arc)
+      .attr('fill', colors(i))
+      .on('click', () => {
+        selectedIndex = selectedIndex === i ? -1 : i;
+
+        svg
+          .selectAll('path')
+          .attr('class', (_, idx) => (
+            // TODO: filter idx to find correct pie slice and apply CSS from above
+            idx === selectedIndex ? 'selected' : ''
+          ));
+        legend
+          .selectAll('li')
+          .attr('class', (_, idx) => (
+            // TODO: filter idx to find correct legend and apply CSS from above
+            idx === selectedIndex ? 'selected' : ''
+          ));
+
+          if (selectedIndex === -1) {
+            renderProjects(projects, projectsContainer, 'h2');
+          } else {
+            // TODO: filter projects and project them onto webpage
+            // Hint: `.label` might be useful
+            let selectedYear = data[selectedIndex].label;
+            // let selectedProjects = projects.filter((project) => project.year === selectedYear);
+            let selectedProjects = projects.filter((project) => {
+              let matchesYear = project.year === selectedYear;
+              console.log(matchesYear);
+              let matchesSearch = query === '' || Object.values(project).join('\n').toLowerCase().includes(query.toLowerCase());
+              console.log(matchesSearch);
+              return matchesSearch;
+            });
+            renderProjects(selectedProjects, projectsContainer, 'h2');
+          }
+          // if (selectedIndex === -1) {
+          //   renderProjects(projects, projectsContainer, 'h2');
+          // } else {
+          //   // TODO: filter projects and project them onto webpage
+          //   // Hint: `.label` might be useful
+          //   let selectedYear = data[selectedIndex].label;
+          //   let selectedProjects = projects.filter((project) => {
+          //     let projyear = project.year === selectedYear;
+          //     console.log(projyear)
+          //     searchInput.addEventListener('change', (event) => {
+          //       query = event.target.value;
+          //       let filteredProjects = projects.filter((project) => {
+          //           let values = Object.values(project).join('\n').toLowerCase();
+          //           return values.includes(query.toLowerCase())
+          //       ;})
+          //       renderProjects(filteredProjects, projectsContainer, 'h2');
+          //   }
+          //   );
+          //   renderProjects(selectedProjects, projectsContainer, 'h2');
+          // }
+      });
+});
+
