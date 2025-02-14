@@ -217,3 +217,25 @@ path {
     fill: var(--color);
   }
 }
+
+#stats dl {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+  margin: auto;
+}
+
+#stats dt {
+  grid-row: 1;
+  font-size: 1.1rem;
+  color: #666;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+#stats dd {
+  grid-row: 2;
+  margin: 0;
+  font-size: 1.8rem;
+  text-align: left;
+}
