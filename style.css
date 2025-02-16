@@ -304,3 +304,33 @@ circle:hover {
   stroke-dasharray: 5 3;
   animation: marching-ants 2s linear infinite;
 }
+
+circle.selected {
+  fill: #ff6b6b;
+}
+
+#language-breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5em;
+  margin: 2em auto;
+  text-align: center;
+}
+
+#language-breakdown dt {
+  grid-row: 1;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 0;
+  text-align: left;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #ccc;
+}
+
+#language-breakdown dd {
+  grid-row: 2;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.5rem;
+  text-align: left;
+}
