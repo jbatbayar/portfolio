@@ -80,6 +80,13 @@ form button {
   margin: 0;
 }
 
+.projects article img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  max-height: 154px;
+  object-fit: cover;
+}
+
 .projects article h3 {
   margin: 0;
   font-weight: initial ;
@@ -90,12 +97,13 @@ form button {
   /* font-variant-numeric: oldstyle-nums; */
 }
 
-/* .projects article img {
+.projects article img {
   width: 100%;
   aspect-ratio: 2 / 1;
   max-height: 154px;
   object-fit: cover;
-} */
+} 
+
 h1 {
   font-size: 400%;
 }
