@@ -4,40 +4,35 @@
         "year": "2025",
 		"type": "Visualization",
 		"image": "portfolio/images/sun_rain.jpg",
-		"description": "Visualization highlights the cities that have the smallest difference between the normalized average sun and rain - the most balanced city each season. All normalized sunshine values are shown as yellow sun while normalized rain values are represented as cloud and rain in blue.",
-		"url":  "https://public.tableau.com/views/p1_17400007191810/Dashboard2?:language=en-US&:display_count=yes&:origin=viz_share_link&:embed=true"
+		"description": "Visualization highlights the cities that have the smallest difference between the normalized average sun and rain - the most balanced city each season. All normalized sunshine values are shown as yellow sun while normalized rain values are represented as cloud and rain in blue."
 	},
 	{
 		"title": "Where's the 🌞 Hotspot Each Month?",
         "year": "2025",
 		"type": "Visualization",
 		"image": "portfolio/images/sun_map.jpeg",
-		"description": "Highlights cities with the highest hours of sunshine each month, creating a year-round travel timeline for someone who seeks sunny weather all the time. Color-coded circles represent the average sunshine hours for those who would like to actually know how sunny it would be.",
-		"url": "https://public.tableau.com/views/Sunshine_2/Dashboard1?:language=en-US&:display_count=yes&:origin=viz_share_link&:embed=true"
+		"description": "Highlights cities with the highest hours of sunshine each month, creating a year-round travel timeline for someone who seeks sunny weather all the time. Color-coded circles represent the average sunshine hours for those who would like to actually know how sunny it would be."
 	},
 	{
 		"title": "How much sunshine would you like to get? Where should you go?",
         "year": "2025",
 		"type": "Visualization",
 		"image": "portfolio/images/sunshine_preferred.jpeg",
-		"description": "Eligendi tenetur quae quos recusandae est. Cumque, voluptatem. Quo nihil dignissimos molestiae explicabo praesentium aspernatur debitis, illo rerum possimus quam ducimus earum nulla officiis maiores itaque repellat corporis soluta labore?",
-		"url": "https://public.tableau.com/views/Sunshine_1_17400012801410/Dashboard2?:language=en-US&:display_count=yes&:origin=viz_share_link&:embed=true"
+		"description": "Eligendi tenetur quae quos recusandae est. Cumque, voluptatem. Quo nihil dignissimos molestiae explicabo praesentium aspernatur debitis, illo rerum possimus quam ducimus earum nulla officiis maiores itaque repellat corporis soluta labore?"
 	},
 	{
-		"title": "Stock Price Prediction & Trading Strategy",
+		"title": "Prediction & Strategy",
         "year": "2025",
 		"type": "ML Project",
 		"image": "portfolio/images/meta_pred.png",
-		"description": "Quo minus perferendis nulla corrupti repellat dolorem dolore assumenda sit minima ducimus quidem ullam, id ipsa dicta tempora laborum officiis unde possimus cumque nobis alias inventore! Ullam repudiandae iusto nam.",
-		"url": "https://jbatbayar.github.io/stock_price_prediction/"
+		"description": "Quo minus perferendis nulla corrupti repellat dolorem dolore assumenda sit minima ducimus quidem ullam, id ipsa dicta tempora laborum officiis unde possimus cumque nobis alias inventore! Ullam repudiandae iusto nam."
 	},
 	{
 		"title": "Reviewing the relationship between Rating and the Amount of Calories of Recipes",
         "year": "2024",
 		"type": "Analysis Project",
 		"image": "portfolio/images/recipe.png",
-		"description": "Laborum alias ea unde harum aspernatur? Molestiae, veritatis, possimus, numquam ex excepturi quod ducimus sit odit optio quibusdam sequi aliquid itaque tempore perspiciatis placeat expedita vero voluptates. Sit, aspernatur sint!",
-		"url": "https://jbatbayar.github.io/recipe_ratings_project/"
+		"description": "Laborum alias ea unde harum aspernatur? Molestiae, veritatis, possimus, numquam ex excepturi quod ducimus sit odit optio quibusdam sequi aliquid itaque tempore perspiciatis placeat expedita vero voluptates. Sit, aspernatur sint!"
 	},
 	{
 		"title": "Placeholder Project",

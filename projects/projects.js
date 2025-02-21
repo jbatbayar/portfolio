@@ -3,7 +3,7 @@ const projects = await fetchJSON('../lib/projects.json');
 // console.log(projects)
 const projectsContainer = document.querySelector('.projects');
 if (projectsContainer) {
-    customRenderProjects(projects, projectsContainer, 'h2');
+    renderProjects(projects, projectsContainer, 'h2');
 } else {
     console.error('Projects container not found');
 }
@@ -14,28 +14,28 @@ projectsTitle.textContent = `${projects.length} Projects`;
 
 projectsTitle.textContent = `${projects.length} Projects`;
 
-// Custom renderProjects to open Tableau dashboards or websites when image is clicked
-function customRenderProjects(projects, containerElement) {
-  containerElement.innerHTML = '';
+// // Custom renderProjects to open Tableau dashboards or websites when image is clicked
+// function customRenderProjects(projects, containerElement) {
+//   containerElement.innerHTML = '';
 
-  for (const project of projects) {
-    const article = document.createElement('article');
+//   for (const project of projects) {
+//     const article = document.createElement('article');
 
-    // Create clickable image based on type
-    const imageHTML = project.url
-      ? `<a href="${project.url}" target="_blank"><img src="${project.image}" alt="${project.title}"></a>`
-      : `<img src="${project.image}" alt="${project.title}">`;
+//     // Create clickable image based on type
+//     const imageHTML = project.url
+//       ? `<a href="${project.url}" target="_blank"><img src="${project.image}" alt="${project.title}"></a>`
+//       : `<img src="${project.image}" alt="${project.title}">`;
 
-    article.innerHTML = `
-      <h2>${project.title}</h2>
-      <h3>${project.year}</h3>
-      ${imageHTML}
-      <p>${project.description}</p>
-    `;
+//     article.innerHTML = `
+//       <h2>${project.title}</h2>
+//       <h3>${project.year}</h3>
+//       ${imageHTML}
+//       <p>${project.description}</p>
+//     `;
 
-    containerElement.appendChild(article);
-  }
-}
+//     containerElement.appendChild(article);
+//   }
+// }
 
 
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
@@ -177,7 +177,7 @@ searchInput.addEventListener('change', (event) => {
 //   let filteredProjects = setQuery(event.target.value);
   // console.log("filtered:", filteredProjects)
   // re-render legends and pie chart when event triggers
-  customRenderProjects(filteredProjects, projectsContainer, 'h2');
+  renderProjects(filteredProjects, projectsContainer, 'h2');
   renderPieChart(filteredProjects);
 });
 
@@ -206,13 +206,13 @@ let legend = d3.select('.legend');
             idx === selectedIndex ? 'selected' : ''
           ));
           if (selectedIndex === -1) {
-            customrRenderProjects(projects, projectsContainer, 'h2');
+            renderProjects(projects, projectsContainer, 'h2');
           } else {
             // TODO: filter projects and project them onto webpage
             // Hint: `.label` might be useful
             let selectedYear = data[selectedIndex].label;
             let selectedProjects = projects.filter((project) => project.year === selectedYear);
-            customRenderProjects(selectedProjects, projectsContainer, 'h2');
+            renderProjects(selectedProjects, projectsContainer, 'h2');
           }
       });
 });
