@@ -1,78 +1,85 @@
 [
 	{
-		"title": "Weather Harmony Quest: Which City Gets It Just Right?",
-        "year": "2025",
+		"title": "Pedal Patterns: Mapping Boston’s Bike Traffic in Motion 🚲✨",
+		"year": "2025",
 		"type": "Visualization",
-		"image": "portfolio/images/sun_rain.jpg",
-		"description": "Visualization highlights the cities that have the smallest difference between the normalized average sun and rain - the most balanced city each season. All normalized sunshine values are shown as yellow sun while normalized rain values are represented as cloud and rain in blue."
+		"image": "../images/bikewatching.png",
+		"description": "Explore Boston’s cycling trends with this interactive map that visualizes bike traffic across the city. BlueBike stations dynamically change size and color based on real-time trip data from 260,000 rides in March 2024, with a time slider revealing traffic patterns from morning commutes to late-night rides.",
+		"link": "https://jbatbayar.github.io/bikewatching/"
+	},
+	{
+		"title": "Weather Harmony Quest: Which City Gets It Just Right?",
+		"year": "2025",
+		"type": "Visualization",
+		"image": "../images/sun_rain.jpg",
+		"description": "Visualization highlights the cities that have the smallest difference between the normalized average sun and rain - the most balanced city each season. All normalized sunshine values are shown as yellow sun while normalized rain values are represented as cloud and rain in blue.",
+		"link": "https://public.tableau.com/views/p1_17400007191810/Dashboard2?:language=en-US&:display_count=yes&:origin=viz_share_link&:embed=true"
 	},
 	{
 		"title": "Where's the 🌞 Hotspot Each Month?",
-        "year": "2025",
+		"year": "2025",
 		"type": "Visualization",
-		"image": "portfolio/images/sun_map.jpeg",
-		"description": "Highlights cities with the highest hours of sunshine each month, creating a year-round travel timeline for someone who seeks sunny weather all the time. Color-coded circles represent the average sunshine hours for those who would like to actually know how sunny it would be."
+		"image": "../images/sun_map.jpeg",
+		"description": "Highlights cities with the highest hours of sunshine each month, creating a year-round travel timeline for someone who seeks sunny weather all the time. Color-coded circles represent the average sunshine hours for those who would like to actually know how sunny it would be.",
+		"link": "https://public.tableau.com/views/Sunshine_2/Dashboard1?:language=en-US&:display_count=yes&:origin=viz_share_link&:embed=true"
 	},
 	{
 		"title": "How much sunshine would you like to get? Where should you go?",
-        "year": "2025",
+		"year": "2025",
 		"type": "Visualization",
-		"image": "portfolio/images/sunshine_preferred.jpeg",
-		"description": "Eligendi tenetur quae quos recusandae est. Cumque, voluptatem. Quo nihil dignissimos molestiae explicabo praesentium aspernatur debitis, illo rerum possimus quam ducimus earum nulla officiis maiores itaque repellat corporis soluta labore?"
+		"image": "../images/sunshine_preferred.jpeg",
+		"description": "Eligendi tenetur quae quos recusandae est. Cumque, voluptatem. Quo nihil dignissimos molestiae explicabo praesentium aspernatur debitis, illo rerum possimus quam ducimus earum nulla officiis maiores itaque repellat corporis soluta labore?",
+		"link": "https://public.tableau.com/views/Sunshine_1_17400012801410/Dashboard2?:language=en-US&:display_count=yes&:origin=viz_share_link&:embed=true"
 	},
 	{
-		"title": "Prediction & Strategy",
-        "year": "2025",
+		"title": "Prediction & Strategy 📈",
+		"year": "2025",
 		"type": "ML Project",
-		"image": "portfolio/images/meta_pred.png",
-		"description": "Quo minus perferendis nulla corrupti repellat dolorem dolore assumenda sit minima ducimus quidem ullam, id ipsa dicta tempora laborum officiis unde possimus cumque nobis alias inventore! Ullam repudiandae iusto nam."
+		"image": "../images/meta_pred.png",
+		"description": "Quo minus perferendis nulla corrupti repellat dolorem dolore assumenda sit minima ducimus quidem ullam, id ipsa dicta tempora laborum officiis unde possimus cumque nobis alias inventore! Ullam repudiandae iusto nam.",
+		"link": "https://jbatbayar.github.io/stock_price_prediction/"
 	},
 	{
-		"title": "Reviewing the relationship between Rating and the Amount of Calories of Recipes",
-        "year": "2024",
+		"title": "From Stars to Calories: Unpacking the Recipe Rating Connection",
+		"year": "2024",
 		"type": "Analysis Project",
-		"image": "portfolio/images/recipe.png",
-		"description": "Laborum alias ea unde harum aspernatur? Molestiae, veritatis, possimus, numquam ex excepturi quod ducimus sit odit optio quibusdam sequi aliquid itaque tempore perspiciatis placeat expedita vero voluptates. Sit, aspernatur sint!"
+		"image": "../images/recipe.png",
+		"description": "Laborum alias ea unde harum aspernatur? Molestiae, veritatis, possimus, numquam ex excepturi quod ducimus sit odit optio quibusdam sequi aliquid itaque tempore perspiciatis placeat expedita vero voluptates. Sit, aspernatur sint!",
+		"link": "https://jbatbayar.github.io/recipe_ratings_project/"
 	},
 	{
 		"title": "Placeholder Project",
-        "year": "2024",
-		"image": "https://dsc106.com/labs/lab02/images/empty.svg",
-		"description": "Est neque, velit nam rerum error odio voluptates voluptatem magnam laboriosam ad? Doloribus, id et itaque unde porro totam ullam quaerat blanditiis odit animi eveniet aut, voluptate velit iure odio."
-	},
-	{
-		"title": "Placeholder Project",
-        "year": "2024",
+		"year": "2024",
 		"image": "https://dsc106.com/labs/lab02/images/empty.svg",
 		"description": "Velit omnis suscipit nemo quia? Iste maiores numquam labore quia nemo eveniet odit, modi magnam? Architecto officia sint est. Architecto iste minima consequuntur explicabo illo error sed at dolore nostrum!"
 	},
 	{
 		"title": "Ipsum, aperiam magni? Nobis.",
-        "year": "2023",
+		"year": "2023",
 		"image": "https://dsc106.com/labs/lab02/images/empty.svg",
 		"description": "Delectus magni, vel, quod mollitia hic rem temporibus, sint doloribus tenetur qui dolores tempore quisquam fuga nobis recusandae molestiae ipsum nostrum maxime eaque dicta aperiam eum quas beatae. At, neque."
 	},
 	{
 		"title": "Dicta nihil odit illo?",
-        "year": "2023",
+		"year": "2023",
 		"image": "https://dsc106.com/labs/lab02/images/empty.svg",
 		"description": "Vitae quos laudantium officiis rerum, accusamus delectus aspernatur quas nulla, magni sed, excepturi saepe incidunt laboriosam alias at aliquam atque quisquam autem nesciunt. Minus, reprehenderit odit nam illo natus aspernatur?"
 	},
 	{
 		"title": "Vel earum nulla facilis.",
-        "year": "2023",
+		"year": "2023",
 		"image": "https://dsc106.com/labs/lab02/images/empty.svg",
 		"description": "Aut voluptatem sint atque corrupti accusamus necessitatibus possimus et, itaque nulla id deleniti nemo repellendus asperiores molestias laudantium, mollitia ad dicta. Laboriosam, itaque. Quos corporis, perferendis natus officiis beatae qui."
 	},
 	{
 		"title": "Nobis iste neque quaerat.",
-        "year": "2022",
+		"year": "2022",
 		"image": "https://dsc106.com/labs/lab02/images/empty.svg",
 		"description": "Quos, recusandae, sit rerum velit nostrum nihil quisquam tempora repellat sed quibusdam facilis. Assumenda quaerat ab, nesciunt odio facere sit, ipsa necessitatibus tempora, maiores commodi sed quae provident deserunt at?"
 	},
 	{
 		"title": "Iusto, incidunt. Totam, illum.",
-        "year": "2021",
+		"year": "2021",
 		"image": "https://dsc106.com/labs/lab02/images/empty.svg",
 		"description": "Tempore, eveniet minus velit, earum aperiam necessitatibus repellendus provident accusamus illum officiis doloribus, eum saepe est aut numquam distinctio pariatur natus totam repellat. Numquam nulla libero sapiente magnam nostrum ex."
 	}
