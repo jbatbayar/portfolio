@@ -342,3 +342,17 @@ circle.selected {
   font-size: 1.5rem;
   text-align: left;
 }
+label {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: flex-end;
+  /* align-items: end; */
+}
+#commitSlider {
+  width: 60%;
+  cursor: pointer;
+}
+#selectedTime {
+  margin-left: auto;
+  display: block;
+}

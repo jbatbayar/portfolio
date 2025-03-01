@@ -1,17 +1,18 @@
 let data = [];
+let selectedCommits = [];
 async function loadData() {
-    data = await d3.csv('loc.csv', (row) => ({
-      ...row,
-      line: Number(row.line), // or just +row.line
-      depth: Number(row.depth),
-      length: Number(row.length),
-      date: new Date(row.date + 'T00:00' + row.timezone),
-      datetime: new Date(row.datetime),
-    }));
-    // console.log(data);
-    processCommits();
-    // console.log(commits);
-    displayStats();
+  data = await d3.csv('loc.csv', (row) => ({
+    ...row,
+    line: Number(row.line), // or just +row.line
+    depth: Number(row.depth),
+    length: Number(row.length),
+    date: new Date(row.date + 'T00:00' + row.timezone),
+    datetime: new Date(row.datetime),
+  }));
+  // console.log(data);
+  processCommits();
+  // console.log(commits);
+  displayStats();
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -24,106 +25,106 @@ document.addEventListener('DOMContentLoaded', async () => {
 let commits = [];
 
 function processCommits() {
-    commits = d3
-      .groups(data, (d) => d.commit)
-      .map(([commit, lines]) => {
-        let first = lines[0];
-        let { author, date, time, timezone, datetime } = first;
-        let ret = {
-          id: commit,
-          url: 'https://github.com/jbatbayar/portfolio/commit/' + commit,
-          author,
-          date,
-          time,
-          timezone,
-          datetime,
-          hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
-          totalLines: lines.length,
-        };
-  
-        Object.defineProperty(ret, 'lines', {
-          value: lines,
-          configurable: false,
-          writable: false,
-          enumerable: false
-          // What other options do we need to set?
-          // Hint: look up configurable, writable, and enumerable
-          // Hide from console logs
-        });
-  
-        return ret;
+  commits = d3
+    .groups(data, (d) => d.commit)
+    .map(([commit, lines]) => {
+      let first = lines[0];
+      let { author, date, time, timezone, datetime } = first;
+      let ret = {
+        id: commit,
+        url: 'https://github.com/jbatbayar/portfolio/commit/' + commit,
+        author,
+        date,
+        time,
+        timezone,
+        datetime,
+        hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
+        totalLines: lines.length,
+      };
+
+      Object.defineProperty(ret, 'lines', {
+        value: lines,
+        configurable: false,
+        writable: false,
+        enumerable: false
+        // What other options do we need to set?
+        // Hint: look up configurable, writable, and enumerable
+        // Hide from console logs
       });
-  }
+
+      return ret;
+    });
+}
 
 
 // loadData();
 // createScatterplot();
 function displayStats() {
-    // Process commits first
-    processCommits();
-  
-    // Create the dl element
-    const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+  // Process commits first
+  processCommits();
 
-    const numfiles = d3.group(data, d => d.file).size;
-    const maxdepth = d3.max(data, d => d.depth);
-  
-    const fileLengths = d3.rollups(
-      data,
-      (v) => d3.max(v, (v) => v.line),
-      (d) => d.file
-    );
-    const averageFileLength = d3.mean(fileLengths, (d) => d[1]);
+  // Create the dl element
+  const dl = d3.select('#stats').append('dl').attr('class', 'stats');
 
-    const workByPeriod = d3.rollups(
-      data,
-      (v) => v.length,
-      (d) => new Date(d.datetime).toLocaleString('en', { dayPeriod: 'short' })
-    );
-    // const maxPeriod = d3.greatest(workByPeriod, (d) => d[1])?.[0];
-  
-    // Add total commits
-    dl.append('dt').text('Total commits');
-    dl.append('dd').text(commits.length);
+  const numfiles = d3.group(data, d => d.file).size;
+  const maxdepth = d3.max(data, d => d.depth);
 
-    // Add more stats as needed...
-    dl.append('dt').text('Files');
-    dl.append('dd').text(numfiles);
+  const fileLengths = d3.rollups(
+    data,
+    (v) => d3.max(v, (v) => v.line),
+    (d) => d.file
+  );
+  const averageFileLength = d3.mean(fileLengths, (d) => d[1]);
 
-    // Add total LOC
-    dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
-    dl.append('dd').text(data.length);
+  const workByPeriod = d3.rollups(
+    data,
+    (v) => v.length,
+    (d) => new Date(d.datetime).toLocaleString('en', { dayPeriod: 'short' })
+  );
+  // const maxPeriod = d3.greatest(workByPeriod, (d) => d[1])?.[0];
 
-    dl.append('dt').text('Max depth');
-    dl.append('dd').text(maxdepth);
+  // Add total commits
+  dl.append('dt').text('Total commits');
+  dl.append('dd').text(commits.length);
 
-    dl.append('dt').text('Avg file length');
-    dl.append('dd').text(averageFileLength);
+  // Add more stats as needed...
+  dl.append('dt').text('Files');
+  dl.append('dd').text(numfiles);
 
-    // dl.append('dt').text('Period with most work');
-    // dl.append('dd').text(maxPeriod);
-  }
+  // Add total LOC
+  dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
+  dl.append('dd').text(data.length);
+
+  dl.append('dt').text('Max depth');
+  dl.append('dd').text(maxdepth);
+
+  dl.append('dt').text('Avg file length');
+  dl.append('dd').text(averageFileLength);
+
+  // dl.append('dt').text('Period with most work');
+  // dl.append('dd').text(maxPeriod);
+}
 
 function updateTooltipContent(commit) {
-    const link = document.getElementById('commit-link');
-    // console.log(commit);
-    const date = document.getElementById('commit-date');
-    const time = document.getElementById('commit-time');
-    const author = document.getElementById('commit-author');
-    const linesedited = document.getElementById('commit-lines');
-  
-    if (Object.keys(commit).length === 0) return;
-  
-    link.href = commit.url;
-    link.textContent = commit.id;
-    date.textContent = commit.datetime?.toLocaleString('en', {
-      dateStyle: 'full',
-    });
-    time.textContent = commit.datetime?.toLocaleString('en', {
-      timeStyle: 'short',
-    });
-    author.textContent = commit.author;
-    linesedited.textContent = commit.totalLines;
+  const link = document.getElementById('commit-link');
+  // console.log(commit);
+  const date = document.getElementById('commit-date');
+  const time = document.getElementById('commit-time');
+  const author = document.getElementById('commit-author');
+  const linesedited = document.getElementById('commit-lines');
+
+  if (Object.keys(commit).length === 0) return;
+
+  link.href = commit.url;
+  link.textContent = commit.id;
+  date.textContent = commit.datetime?.toLocaleString('en', {
+    dateStyle: 'full',
+  });
+  time.textContent = commit.datetime?.toLocaleString('en', {
+    timeStyle: 'short',
+  });
+  author.textContent = commit.author;
+  linesedited.textContent = commit.totalLines;
 }
 
 function updateTooltipVisibility(isVisible) {
@@ -146,27 +147,25 @@ function brushSelector() {
 
 let brushSelection = null;
 
-function brushed(event) {
-  brushSelection = event.selection;
-  updateSelection();
-  updateSelectionCount();
-  updateLanguageBreakdown();
+function brushed(evt) {
+  let brushSelection = evt.selection;
+  selectedCommits = !brushSelection
+    ? []
+    : commits.filter((commit) => {
+      let min = { x: brushSelection[0][0], y: brushSelection[0][1] };
+      let max = { x: brushSelection[1][0], y: brushSelection[1][1] };
+      let x = xScale(commit.date);
+      let y = yScale(commit.hourFrac);
+
+      return x >= min.x && x <= max.x && y >= min.y && y <= max.y;
+    });
 }
-let xScale
-let yScale
+// let xScale
+// let yScale
 
 function isCommitSelected(commit) {
-  if (!brushSelection) {
-    return false;
-  }
-  // TODO: return true if commit is within brushSelection
-  // if 
-  const min = { x: brushSelection[0][0], y: brushSelection[0][1] };
-  const max = { x: brushSelection[1][0], y: brushSelection[1][1] };
-  const x = xScale(commit.date);
-  const y = yScale(commit.hourFrac);
-  return x >= min.x && x <= max.x && y >= min.y && y <= max.y;
-  // and false if not
+  console.log(commit);
+  return selectedCommits.includes(commit);
 }
 
 function updateSelection() {
@@ -175,22 +174,21 @@ function updateSelection() {
 }
 
 function updateSelectionCount() {
-  const selectedCommits = brushSelection
-    ? commits.filter(isCommitSelected)
-    : [];
+  // const selectedCommits = brushSelection
+  //   ? commits.filter(isCommitSelected)
+  //   : [];
 
   const countElement = document.getElementById('selection-count');
-  countElement.textContent = `${
-    selectedCommits.length || 'No'
-  } commits selected`;
+  countElement.textContent = `${selectedCommits.length || 'No'
+    } commits selected`;
 
   return selectedCommits;
 }
 
 function updateLanguageBreakdown() {
-  const selectedCommits = brushSelection
-    ? commits.filter(isCommitSelected)
-    : [];
+  // const selectedCommits = brushSelection
+  //   ? commits.filter(isCommitSelected)
+  //   : [];
   const container = document.getElementById('language-breakdown');
 
   if (selectedCommits.length === 0) {
@@ -223,7 +221,7 @@ function updateLanguageBreakdown() {
   return breakdown;
 }
 
-function createScatterplot(){
+function createScatterplot() {
   const width = 1000;
   const height = 600;
   const svg = d3
@@ -305,18 +303,41 @@ function createScatterplot(){
     .attr('r', (d) => rScale(d.totalLines))
     .style('fill-opacity', 0.7) // Add transparency for overlapping dots
     .on('mouseenter', function (event, d, i) {
-      d3.select(event.currentTarget).style('fill-opacity', 1); // Full opacity on hover
+      // d3.select(event.currentTarget).style('fill-opacity', 1); // Full opacity on hover
+      d3.select(event.currentTarget).classed('selected', 1); // give it a corresponding boolean value
       // ... existing hover handlers
       updateTooltipContent(d);
       updateTooltipVisibility(true);
       updateTooltipPosition(event);
     })
     .on('mouseleave', function () {
-      d3.select(event.currentTarget).style('fill-opacity', 0.7); // Restore transparency
+      // d3.select(event.currentTarget).style('fill-opacity', 0.7); // Restore transparency
+      d3.select(event.currentTarget).classed('selected', 0); // give it a corresponding boolean value
       // ... existing leave handlers
       updateTooltipContent({});
       updateTooltipVisibility(false);
     });
-  
+
   brushSelector();
+
+  // Create time scale
+  let timeScale = d3.scaleTime().domain([d3.min(commits, d => d.datetime), d3.max(commits, d => d.datetime)]).range([0, 100]);
+  console.log(timeScale);
+
+const selectedTime = d3.select('#selectedTime');
+function updateTime() {
+  let commitMaxTime = timeScale.invert(commitProgress);
+  selectedTime.text(commitMaxTime.toLocaleString(undefined, {
+    dateStyle: "long",
+    timeStyle: "short"
+  }));
+}
+
+// updateTime();
+
+
+document.getElementById('commitSlider').addEventListener('input', function () {
+  commitProgress = this.value;
+  updateTime();
+});
 }
